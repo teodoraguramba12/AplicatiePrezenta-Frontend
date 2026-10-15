@@ -1,38 +1,175 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+
+body {
+  margin: 0;
+  background-color: #FCEECB;
+  font-family: 'Alfa Slab One', serif;
+  color: #521616;
+  overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Benzile decorative laterale pentru desktop */
+.side-pattern {
+  width: 243px; 
+  height: 100%;
+  background-image: url('./Imagini/Model.png');
+  background-repeat: repeat-y;
+  background-size: cover;
+  background-position: center;
+  flex-shrink: 0;
+  position: absolute;
+  left: 0;
+}
+.left-pattern {
+  left: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.right-pattern {
+  left: auto;
+  right: 0;
+}
+
+/* Conținutul central */
+.content-center {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  z-index: 2;
+  padding: 0 20px;
+  max-width: 500px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Sigla */
+.logo {
+  width: 301px;
+  height: 292px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #5C1D24;
+  margin-bottom: 25px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.text-container {
+  margin-bottom: 30px;
+}
+
+.subtitle, .title {
+  font-family: 'Alfa Slab One', serif;
+  font-size: 24px;
+  color: #521616;
+  margin: 0 0 10px 0;
+  line-height: 1.3;
+}
+
+/* Butonul verde stilizat */
+.custom-btn {
+  background-color: #3A8242;
+  color: #431111;
+  font-family: 'Alfa Slab One', serif;
+  font-size: 24px;
+  border: 3px solid #431111;
+  padding: 12px 40px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.custom-btn:hover {
+  background-color: #2E6A35;
+  transform: scale(1.02);
+}
+
+/* --- SETĂRI PENTRU ECRANE DE TELEFON (MOBIL) --- */
+
+@media (max-width: 768px) {
+  /* Containerul principal pe telefon */
+  .main-container {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 100vh !important;
+    padding: 60px 30px !important; /* Lasă spațiu sus și jos ca să nu se suprapună benzile peste conținut */
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
-  to {
-    transform: rotate(360deg);
+
+  /* Banda de sus fixată */
+  .left-pattern {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 120% !important;
+    height: 110px !important;
+    background-image: url('./Imagini/ModelOriz.png') !important;
+    background-repeat: repeat-x !important;
+    background-size: auto 100% !important;
+    background-position: center !important;
+    z-index: 10;
+  }
+
+  /* Banda de jos fixată */
+  .right-pattern {
+    position: absolute !important;
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 120% !important;
+    height: 100px !important;
+    background-image: url('./Imagini/ModelOriz.png') !important;
+    background-repeat: repeat-x !important;
+    background-size: auto 100% !important;
+    background-position: center !important;
+    z-index: 10;
+  }
+
+  /* Conținutul din mijloc rămâne centrat frumos, exact cum era */
+  .content-center {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    z-index: 2;
+  }
+
+  /* Dimensiuni curate pentru elemente pe telefon */
+  .logo {
+    width: 120px !important;
+    height: 120px !important;
+    margin-bottom: 15px !important;
+  }
+
+  .subtitle {
+    font-size: 13px !important;
+  }
+
+  .title {
+    font-size: 16px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .custom-btn {
+    font-size: 15px !important;
+    padding: 10px 25px !important;
+    border-radius: 20px !important;
   }
 }
